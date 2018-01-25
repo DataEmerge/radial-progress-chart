@@ -208,11 +208,16 @@ RadialProgressChart.prototype.update = function (data) {
     }
   }
 
-  // calculate from percentage and new percentage for the progress animation
-  self.options.series.forEach(function (item) {
+  const ICON_PIXEL_SIZE = 15;
+  const MAGIC_NUMBER = 1.4; // still unsure why this works
+  // calculate min percentage to always have the icon on top of foreground
+  for (var i = 0; i < self.options.series.length; i++) {
+    var item = self.options.series[i]; // inner -> outer
+    var radius = self.options.diameter - ((self.options.series.length - 1 - i) * (self.options.stroke.width / MAGIC_NUMBER)) - (i > 0 ? ((i - 1) * self.options.stroke.gap) : 0);
+    var minLabelPercentage = (ICON_PIXEL_SIZE / (Math.PI * radius)) * 100;
+    item.percentage = (Math.max(item.value, minLabelPercentage, self.options.min) / self.options.max) * 100;
     item.fromPercentage = item.percentage ? item.percentage : 5;
-    item.percentage = (item.value - self.options.min) * 100 / (self.options.max - self.options.min);
-  });
+  }
 
   var center = self.svg.select("text.rbc-center-text");
 
