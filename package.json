@@ -1,8 +1,8 @@
 {
-  "name": "radial-progress-chart",
-  "description": "A customizable Radial Progress Chart written on the top of D3.js.",
-  "version": "0.0.4",
-  "repository": "git@github.com:pablomolnar/radial-progress-chart.git",
+  "name": "radial-progress-chart-mod",
+  "description": "A modified version of a customizable radial progress chart written on top of D3.js",
+  "version": "0.0.5",
+  "repository": "git@github.com:DataEmerge/radial-progress-chart.git",
   "scripts": {
     "test": "mocha",
     "build": "node browserify.js && ./node_modules/uglify-js/bin/uglifyjs ./dist/radial-progress-chart.js -m -o ./dist/radial-progress-chart.min.js",
