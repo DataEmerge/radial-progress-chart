@@ -208,9 +208,9 @@ RadialProgressChart.prototype.update = function (data) {
     }
   }
 
-  const ICON_PIXEL_SIZE = 15;
-  const MAGIC_NUMBER = 1.4; // still unsure why this works
-  // calculate min percentage to always have the icon on top of foreground
+  const ICON_PIXEL_SIZE = 13; // this is the one to move the minimum left/right
+  const MAGIC_NUMBER = 1.4; // still unsure why this works, but it rotates the minimum line about its middle
+  // calculate min percentage to at minimum always have the icon on top of foreground
   for (var i = 0; i < self.options.series.length; i++) {
     var item = self.options.series[i]; // inner -> outer
     var radius = self.options.diameter - ((self.options.series.length - 1 - i) * (self.options.stroke.width / MAGIC_NUMBER)) - (i > 0 ? ((i - 1) * self.options.stroke.gap) : 0);
