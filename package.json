@@ -1,7 +1,7 @@
 {
   "name": "radial-progress-chart-mod",
   "description": "Modified version of Pablo Molnar's radial progress chart",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "git@github.com:DataEmerge/radial-progress-chart.git",
   "scripts": {
     "test": "mocha",
